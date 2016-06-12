@@ -127,10 +127,11 @@ Further, the raw data contain plenty of misspellings and identical entries not r
 #### Latitude and Longitude
 Finally, the geographical coordinates. Some values are clearly wrong. Indeed, we have 67 entries in train and 76 in test where the latitude is given as 90 degrees, i.e. the north pole. As those mistakes are mercifully few, we just replace these values by the medians for the corresponding police district.
 
-Looking at the geographical distribution of various crimes, one notices clear hotspots. As an example, let's consider weapons laws violations
+Looking at the geographical distribution of various crimes, one notices clear hotspots. As an example, let's consider weapons laws violations. A scatter plot overlaid on a map of San Francisco:
 ![alt text](https://github.com/MichaelPluemacher/San-Francisco-crimes/blob/master/Graphs/WeaponLaws_scatter.png)
+And a corresponding heat map
 ![alt text](https://github.com/MichaelPluemacher/San-Francisco-crimes/blob/master/Graphs/WeaponLaws_heat.png)
-
+Clearly, the coordinates play an important role in predicting crimes.
 
 
 
