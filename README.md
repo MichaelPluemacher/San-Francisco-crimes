@@ -74,10 +74,32 @@ Again, we see significant differences in the distributions for crimes occuring i
 We add the corresponding log odds both to the train and test datasets
 
 #### The timestamp
+The datetime stamp provided in the data is split into the following distinct columns:
+ - Year,
+ - Month,
+ - Day of the month,
+ - Ordinal day of the year,
+ - Time (hour + minute/60),
+ - Hour,
+ - and minute.
 
+We check that there are no data for February 29 in the data, i.e. leap years are one problem we don't have to worry about here. 
 
+Further, we check whether daylight saving time is implemented in the times given or not. For example, in 2014, DST started on March 9 at 2 am, i.e. there should be no data between 2am and 3am on this day. However, there are such data, hence DST seems not to be implemented here, yet another complication we don't have to worry about.
 
+Additionally, we introduce a new column denoting whether it is night or not. As a (very) rough divider we use the average time of sunrise and sunset per month.
 
+Presumably, crime rates will be different on working days on the one hand and weekdays and holidays on the other hand. So we'll introduce a column *WorkingDay* to differentiate accordingly. Data on holidays and which businesses actually observe them are sketchy at best, so we'll only count the most important ones as holidays:
+  - New Year
+  - Memorial Day
+  - Independence Day
+  - Labor Day
+  - Thanksgiving
+  - Black Friday
+  - Christmas
+Technically, Black Friday is not a holiday, of course. However, we include it here due to its special significance. The corresponding holiday rules have been implemented with the help of the *USFederalHolidayCalendar* from *pandas.tseries.holiday*
+
+#### The crimes
 
 
 
