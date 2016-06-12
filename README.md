@@ -66,11 +66,11 @@ Similarly, in the training data we have:
 | 16  |        1| 
 
 Hence, events with more that three crimes occurring simultaneously are comparatively rare. We have 39 distinct categories of crimes in the data. Let's look at the probability of a particular type of crime being part of a multiple event:
-![alt text](https://github.com/MichaelPluemacher/San-Francisco-crimes/blob/master/Graphs/MultiCrime_by_Cat.png)
+![alt text](https://github.com/MichaelPluemacher/San-Francisco-crimes/blob/master/Graphs/MultCrime_by_Cat.png)
 On the x axes we have the number of crimes in one event. It is immediately obvious that certain types of crimes occur almost exclusively in mutiple events, while others prefer to happen in isolation. Another way of looking at it is to plot the probabilty of crimes by their category for the different values of the number of crimes in one event:
-![alt text](https://github.com/MichaelPluemacher/San-Francisco-crimes/blob/master/Graphs/MultiCrime_by_Count.png)
+![alt text](https://github.com/MichaelPluemacher/San-Francisco-crimes/blob/master/Graphs/MultCrime_by_Count.png)
 Again, we see significant differences in the distributions for crimes occuring in isolation (*MultCount*=1) compared to those occuring simultaneously with other crimes. We take that into consideration by computing the log odds of a crime occuring for the different values of *MultCount*. Given the scarcity of data for *MultCount*>2 we only consider *MultCount*=1, 2, and larger than or equal to 3 separately. Those condensed probabilities are summarized in the following graph:
-![alt text](https://github.com/MichaelPluemacher/San-Francisco-crimes/blob/master/Graphs/MultiCrime_by_Count_condensed.png)
+![alt text](https://github.com/MichaelPluemacher/San-Francisco-crimes/blob/master/Graphs/MultCrime_by_Count_condensed.png)
 We add the corresponding log odds both to the train and test datasets
 
 #### The timestamp
