@@ -115,7 +115,9 @@ In the hourly distribution we notice two peaks at 12am and 12pm. From the descri
 
 #### The addresses
 Following an idea first put forward by papadopc on kaggle
+
 https://www.kaggle.com/papadopc/sf-crime/neural-nets-and-address-featurization
+
 we turn the addresses into a feature by computing the log odds of an address occuring in the data sets as well as the log odds of a particular crime occuring at that address.
 
 First, however, we have to do some cleaning on the addresses. We start by differentiating between intersections of two streets and regular street addresses, i.e. we introduce a column *StreetCorner* indicating whether it is an intersection or not.
@@ -123,8 +125,11 @@ First, however, we have to do some cleaning on the addresses. We start by differ
 Further, the raw data contain plenty of misspellings and identical entries not recognizable as such, e.g. *A ST / B ST* and *B ST / A ST* are clearly the same intersection. We do that by extracting the street names, removing suffixes such as *ST*, *AV*, *HWY* etc. and then combine them in alphabetical order for intersections. Having done that, we compute the log odds as briefly described above.
 
 #### Latitude and Longitude
+Finally, the geographical coordinates. Some values are clearly wrong. Indeed, we have 67 entries in train and 76 in test where the latitude is given as 90 degrees, i.e. the north pole. As those mistakes are mercifully few, we just replace these values by the medians for the corresponding police district.
 
-
+Looking at the geographical distribution of various crimes, one notices clear hotspots. As an example, let's consider weapons laws violations
+![alt text](https://github.com/MichaelPluemacher/San-Francisco-crimes/blob/master/Graphs/WeaponsLaws_scatter.png)
+![alt text](https://github.com/MichaelPluemacher/San-Francisco-crimes/blob/master/Graphs/WeaponsLaws_heat.png)
 
 
 
