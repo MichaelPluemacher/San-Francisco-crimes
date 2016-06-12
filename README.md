@@ -97,12 +97,32 @@ Presumably, crime rates will be different on working days on the one hand and we
   - Thanksgiving
   - Black Friday
   - Christmas
+
 Technically, Black Friday is not a holiday, of course. However, we include it here due to its special significance. The corresponding holiday rules have been implemented with the help of the *USFederalHolidayCalendar* from *pandas.tseries.holiday*
 
 #### The crimes
+Time to look at the different crimes. Counting the numbers by categories gives:
+![alt text](https://github.com/MichaelPluemacher/San-Francisco-crimes/blob/master/Graphs/CrimeCounts.png)
+We also look at the distributions of crimes over the day and for different days of the week. As an example let us show those distributions for violent crimes:
+![alt text](https://github.com/MichaelPluemacher/San-Francisco-crimes/blob/master/Graphs/violentCrimes_hour.png)
+![alt text](https://github.com/MichaelPluemacher/San-Francisco-crimes/blob/master/Graphs/violentCrimes_day.png)
+As we can see there is a fairly broad distribution over the course of the day and evening with a significant dip in the early hours. The distribution over the week seems to peak on Wednesdays.
 
+As another interesting example, let's look at economic crimes:
+![alt text](https://github.com/MichaelPluemacher/San-Francisco-crimes/blob/master/Graphs/economicCrimes_hour.png)
+![alt text](https://github.com/MichaelPluemacher/San-Francisco-crimes/blob/master/Graphs/economicCrimes_day.png)
+In the hourly distribution we notice two peaks at 12am and 12pm. From the description of the data it is not immediately obvious why that should be the case. Maybe it's because such crimes tend to go on over a period of time, i.e. no single time can be assigned to them.
 
+#### The addresses
+Following an idea first put forward by papadopc on kaggle
+https://www.kaggle.com/papadopc/sf-crime/neural-nets-and-address-featurization
+we turn the addresses into a feature by computing the log odds of an address occuring in the data sets as well as the log odds of a particular crime occuring at that address.
 
+First, however, we have to do some cleaning on the addresses. We start by differentiating between intersections of two streets and regular street addresses, i.e. we introduce a column *StreetCorner* indicating whether it is an intersection or not.
+
+Further, the raw data contain plenty of misspellings and identical entries not recognizable as such, e.g. *A ST / B ST* and *B ST / A ST* are clearly the same intersection. We do that by extracting the street names, removing suffixes such as *ST*, *AV*, *HWY* etc. and then combine them in alphabetical order for intersections. Having done that, we compute the log odds as briefly described above.
+
+#### Latitude and Longitude
 
 
 
