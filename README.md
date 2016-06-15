@@ -131,12 +131,13 @@ Looking at the geographical distribution of various crimes, one notices clear ho
 ![alt text](https://github.com/MichaelPluemacher/San-Francisco-crimes/blob/master/Graphs/WeaponLaws_scatter.png)
 And a corresponding heat map
 ![alt text](https://github.com/MichaelPluemacher/San-Francisco-crimes/blob/master/Graphs/WeaponLaws_heat.png)
-Clearly, the coordinates play an important role in predicting crimes.
+Clearly, the coordinates play an important role in predicting crimes. Hence, we incorporate the following transformed coordinates into the data:
+- X and Y rotated by 30, 45 and 60 degrees,
+- and the distance from the center of the map.
 
+In the end, only the distance plays any role in fitting models. Clearly, a more refined construction of features based on X and Y could be useful. For example, as we saw above, crimes tend bo be clustered around hotspots. Computing the distance from the center of the hotspot separately for each category of crime might therefore prove useful.
 
-tranformed XY
-
-89 numerical variables
+## Building a predictive model
 
 
 
