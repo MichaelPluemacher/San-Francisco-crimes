@@ -134,7 +134,9 @@ And a corresponding heat map
 Clearly, the coordinates play an important role in predicting crimes.
 
 
+tranformed XY
 
+89 numerical variables
 
 
 
